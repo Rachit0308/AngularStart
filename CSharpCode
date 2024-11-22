@@ -1,0 +1,13 @@
+ public static string FormatPath(string inputPath)
+ {
+     // Replace backslashes with forward slashes
+     string formattedPath = inputPath.Replace("\\", "/");
+
+     // Encode special characters
+     formattedPath = Uri.EscapeDataString(formattedPath);
+
+     // Decode slashes back (as EscapeDataString encodes / as %2F)
+     formattedPath = formattedPath.Replace("%2F", "/");
+
+     return formattedPath;
+ }
